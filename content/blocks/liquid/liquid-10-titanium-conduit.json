@@ -6,6 +6,9 @@
     "health": 120,
     "liquidCapacity": 12,
     "liquidPressure": 1.015,
+    "junctionReplacement": "liquid-titanium-junction",
+    "bridgeReplacement": "liquid-titanium-bridge-conduit",
+    "rotBridgeReplacement": "liquid-titanium-bridge-conduit",
     "requirements": [
         {
             "item": "graphite",

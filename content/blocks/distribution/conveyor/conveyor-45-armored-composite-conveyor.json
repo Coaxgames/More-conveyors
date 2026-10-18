@@ -7,6 +7,7 @@
 	"health": 500,
 	"speed": 0.82,
 	"displayedSpeed": 88,
+	"junctionReplacement": "distribution-armored-junction3-composite",
 	"requirements": [
 		{
 			"item": "item-20-composite-matter",

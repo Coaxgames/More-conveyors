@@ -33,6 +33,8 @@ jobs:
               "distribution-armored-router": "distribution-titanium-router",
               "distribution-armored-bridge-conveyor_v2": "distribution-titanium-bridge-conveyor",
               "distribution-armored-junction": "distribution-titanium-junction",
+              "liquid-armored-liquid-junction": "liquid-titanium-junction",
+              "liquid-armored-bridge-conduit": "liquid-titanium-bridge-conduit",
               "liquid-5-thorium-pump": "liquid-5-titanium-pump",
               "liquid-10-thorium-conduit": "liquid-10-titanium-conduit",
               "liquid-15-armored-thorium-conduit": "liquid-15-armored-titanium-conduit",
@@ -45,6 +47,49 @@ jobs:
           for block, parent in expected_research.items():
               if blocks.get(block, {}).get("research") != parent:
                   raise SystemExit(f"{block}: expected research parent {parent}")
+
+          expected_replacements = {
+              "conveyor-01-armored-titanium-conveyor": {
+                  "junctionReplacement": ("distribution-titanium-junction", "Junction"),
+                  "bridgeReplacement": ("distribution-titanium-bridge-conveyor", "ItemBridge"),
+              },
+              "conveyor-15-armored-thorium-conveyor": {
+                  "junctionReplacement": ("distribution-armored-junction", "Junction"),
+                  "bridgeReplacement": ("distribution-armored-bridge-conveyor_v2", "ItemBridge"),
+              },
+              "conveyor-35-armored-surge-alloy-conveyor": {
+                  "junctionReplacement": ("distribution-armored-junction2-surge", "Junction"),
+              },
+              "conveyor-45-armored-composite-conveyor": {
+                  "junctionReplacement": ("distribution-armored-junction3-composite", "Junction"),
+              },
+              "liquid-10-titanium-conduit": {
+                  "junctionReplacement": ("liquid-titanium-junction", "LiquidJunction"),
+                  "bridgeReplacement": ("liquid-titanium-bridge-conduit", "LiquidBridge"),
+                  "rotBridgeReplacement": ("liquid-titanium-bridge-conduit", "LiquidBridge"),
+              },
+              "liquid-15-armored-titanium-conduit": {
+                  "junctionReplacement": ("liquid-titanium-junction", "LiquidJunction"),
+                  "bridgeReplacement": ("liquid-titanium-bridge-conduit", "LiquidBridge"),
+                  "rotBridgeReplacement": ("liquid-titanium-bridge-conduit", "LiquidBridge"),
+              },
+              "liquid-10-thorium-conduit": {
+                  "junctionReplacement": ("liquid-armored-liquid-junction", "LiquidJunction"),
+                  "bridgeReplacement": ("liquid-armored-bridge-conduit", "LiquidBridge"),
+                  "rotBridgeReplacement": ("liquid-armored-bridge-conduit", "LiquidBridge"),
+              },
+              "liquid-15-armored-thorium-conduit": {
+                  "junctionReplacement": ("liquid-armored-liquid-junction", "LiquidJunction"),
+                  "bridgeReplacement": ("liquid-armored-bridge-conduit", "LiquidBridge"),
+                  "rotBridgeReplacement": ("liquid-armored-bridge-conduit", "LiquidBridge"),
+              },
+          }
+          for block, replacements in expected_replacements.items():
+              for property_name, (replacement, expected_type) in replacements.items():
+                  if blocks.get(block, {}).get(property_name) != replacement:
+                      raise SystemExit(f"{block}: expected {property_name}={replacement}")
+                  if blocks.get(replacement, {}).get("type") != expected_type:
+                      raise SystemExit(f"{replacement}: expected block type {expected_type}")
 
           for block in ("distribution-titanium-router", "distribution-titanium-junction"):
               data = blocks.get(block, {})

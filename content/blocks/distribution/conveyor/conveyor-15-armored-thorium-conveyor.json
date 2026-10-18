@@ -6,6 +6,8 @@
     "health": 250,
     "speed": 0.16,
     "displayedSpeed": 22,
+    "junctionReplacement": "distribution-armored-junction",
+    "bridgeReplacement": "distribution-armored-bridge-conveyor_v2",
     "requirements": [
         {
             "item": "graphite",

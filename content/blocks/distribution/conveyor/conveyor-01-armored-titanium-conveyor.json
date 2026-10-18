@@ -6,6 +6,8 @@
     "health": 145,
     "speed": 0.0872727,
     "displayedSpeed": 12,
+    "junctionReplacement": "distribution-titanium-junction",
+    "bridgeReplacement": "distribution-titanium-bridge-conveyor",
     "requirements": [
         {
             "item": "copper",

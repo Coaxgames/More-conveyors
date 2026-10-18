@@ -6,6 +6,7 @@
     "health": 300,
     "speed": 0.34,
     "displayedSpeed": 44,
+    "junctionReplacement": "distribution-armored-junction2-surge",
     "requirements": [
         {
             "item": "titanium",

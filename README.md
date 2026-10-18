@@ -22,6 +22,6 @@ New armored variants of vanilla liquid distribution blocks.
 
 1 new wall that combines the abilities of the Surge Wall, Plastanium Wall and Phase Wall
 
-Titanium-tier variants of Thorium pumps, conduits, batteries, storage blocks, unloaders, routers, bridge conveyors, and junctions. Thorium variants are researched after their titanium counterparts.
+Titanium-tier variants of Thorium pumps, conduits, batteries, storage blocks, unloaders, routers, bridge conveyors, and junctions. Thorium variants are researched after their titanium counterparts. Armored titanium/Thorium conveyor tiers and titanium/Thorium conduits use matching-tier junctions and bridges during drag placement; surge/composite armored conveyors use their matching junctions.
 
 Each push and pull request runs the GitHub Actions build, which validates the mod content, packages a loadable JAR, and uploads it as a commit-specific workflow artifact.

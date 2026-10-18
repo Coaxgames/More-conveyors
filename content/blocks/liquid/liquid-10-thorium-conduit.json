@@ -6,6 +6,9 @@
     "health": 140,
     "liquidCapacity": 16,
     "liquidPressure": 1.025,
+    "junctionReplacement": "liquid-armored-liquid-junction",
+    "bridgeReplacement": "liquid-armored-bridge-conduit",
+    "rotBridgeReplacement": "liquid-armored-bridge-conduit",
     "requirements": [
         {
             "item": "graphite",
