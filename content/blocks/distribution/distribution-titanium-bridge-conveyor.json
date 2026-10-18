@@ -1,0 +1,25 @@
+{
+    "type": "ItemBridge",
+    "name": "Titanium Bridge Conveyor",
+    "description": "Stronger and longer reach than the standard Bridge Conveyor.",
+    "category": "distribution",
+    "health": 160,
+    "range": 5,
+    "hasPower": false,
+    "transportTime": 3,
+    "requirements": [
+        {
+            "item": "copper",
+            "amount": 2
+        },
+        {
+            "item": "lead",
+            "amount": 2
+        },
+        {
+            "item": "titanium",
+            "amount": 2
+        }
+    ],
+    "research": "bridge-conveyor"
+}

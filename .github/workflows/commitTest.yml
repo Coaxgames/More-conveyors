@@ -30,6 +30,9 @@ jobs:
 
           expected_research = {
               "conveyor-15-armored-thorium-conveyor": "conveyor-01-armored-titanium-conveyor",
+              "distribution-armored-router": "distribution-titanium-router",
+              "distribution-armored-bridge-conveyor_v2": "distribution-titanium-bridge-conveyor",
+              "distribution-armored-junction": "distribution-titanium-junction",
               "liquid-5-thorium-pump": "liquid-5-titanium-pump",
               "liquid-10-thorium-conduit": "liquid-10-titanium-conduit",
               "liquid-15-armored-thorium-conduit": "liquid-15-armored-titanium-conduit",
@@ -42,6 +45,13 @@ jobs:
           for block, parent in expected_research.items():
               if blocks.get(block, {}).get("research") != parent:
                   raise SystemExit(f"{block}: expected research parent {parent}")
+
+          for block in ("distribution-titanium-router", "distribution-titanium-junction"):
+              data = blocks.get(block, {})
+              if abs(data.get("speed", 0) - 60 / 22) > 0.001:
+                  raise SystemExit(f"{block}: rate is not 22 items/second")
+              if block.endswith("junction") and data.get("displayedSpeed") != 22:
+                  raise SystemExit(f"{block}: displayed rate is not 22 items/second")
 
           print(f"Validated {len(files)} JSON files.")
           PY

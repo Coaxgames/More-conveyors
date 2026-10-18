@@ -1,0 +1,22 @@
+{
+    "type": "Junction",
+    "name": "Titanium Junction",
+    "description": "Stronger than the standard Junction.",
+    "category": "distribution",
+    "health": 125,
+    "buildCostMultiplier": 6,
+    "speed": 2.7273,
+    "displayedSpeed": 22,
+    "capacity": 10,
+    "requirements": [
+        {
+            "item": "copper",
+            "amount": 2
+        },
+        {
+            "item": "titanium",
+            "amount": 2
+        }
+    ],
+    "research": "junction"
+}
