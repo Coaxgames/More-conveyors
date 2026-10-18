@@ -8,9 +8,21 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mindustry-version: [v157, v160]
 
     steps:
       - uses: actions/checkout@v5
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Validate mod content
         run: |
@@ -20,7 +32,11 @@ jobs:
 
           root = Path(".")
           files = list((root / "content").rglob("*.json"))
-          files.append(root / "mod.json")
+          metadata_path = root / "mod.json"
+          metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+          if metadata.get("java") is not True or metadata.get("main") != "moreconveyors.Main":
+              raise SystemExit("mod.json must declare the Java entry point moreconveyors.Main")
+          files.append(metadata_path)
           blocks = {}
 
           for path in files:
@@ -101,17 +117,14 @@ jobs:
           print(f"Validated {len(files)} JSON files.")
           PY
 
-      - name: Package mod
-        env:
-          MOD_NAME: ${{ github.event.repository.name }}
-        run: |
-          mkdir -p build/libs
-          zip -qr "build/libs/${MOD_NAME}.jar" mod.json icon.png content sprites
+      - name: Build mod JAR
+        run: gradle --no-daemon build -PmindustryVersion=${{ matrix.mindustry-version }} --stacktrace --console=plain
 
       - name: Upload built mod
+        if: matrix.mindustry-version == 'v157'
         uses: actions/upload-artifact@v7
         with:
           archive: false
           name: ${{ github.event.repository.name }}-${{ github.sha }}
-          path: build/libs/${{ github.event.repository.name }}.jar
+          path: build/libs/More-conveyors.jar
           if-no-files-found: error
