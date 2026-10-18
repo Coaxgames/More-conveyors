@@ -3,7 +3,7 @@
 	"name": "Surge Alloy Unloader",
 	"description": "Unloads the selected item from nearby blocks. Fast enough for a Surge Alloy Conveyor.",
 	"envDisabled": 16,
-	"category": "effect",
+	"category": "distribution",
 	"health": 130,
 	"speed": 1.2,
 	"requirements": [

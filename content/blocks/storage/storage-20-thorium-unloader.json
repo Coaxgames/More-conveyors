@@ -3,7 +3,7 @@
 	"name": "Thorium Unloader",
 	"description": "Unloads the selected item from nearby blocks. Fast enough for a thorium conveyor.",
 	"envDisabled": 16,
-	"category": "effect",
+	"category": "distribution",
 	"health": 95,
 	"speed": 2.7,
 	"requirements": [
