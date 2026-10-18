@@ -1,0 +1,24 @@
+{
+    "type": "ArmoredConduit",
+    "name": "Armored Titanium Conduit",
+    "description": "Stronger than the Plated Conduit. Does not accept input from the sides. Does not leak.",
+    "category": "liquid",
+    "health": 240,
+    "liquidCapacity": 12,
+    "liquidPressure": 1.015,
+    "requirements": [
+        {
+            "item": "graphite",
+            "amount": 2
+        },
+        {
+            "item": "metaglass",
+            "amount": 4
+        },
+        {
+            "item": "titanium",
+            "amount": 3
+        }
+    ],
+    "research": "liquid-10-titanium-conduit"
+}

@@ -4,7 +4,7 @@
     "description": "Stronger and faster than the Mechanical Pump.",
     "category": "liquid",
     "health": 80,
-    "pumpAmount": 0.1666667,
+    "pumpAmount": 0.2666667,
     "requirements": [
         {
             "item": "copper",
@@ -19,5 +19,5 @@
             "amount": 10
         }
     ],
-    "research": "mechanical-pump"
+    "research": "liquid-5-titanium-pump"
 }

@@ -1,0 +1,24 @@
+{
+    "type": "Conduit",
+    "name": "Titanium Conduit",
+    "description": "Stronger than the Pulse Conduit.",
+    "category": "liquid",
+    "health": 120,
+    "liquidCapacity": 12,
+    "liquidPressure": 1.015,
+    "requirements": [
+        {
+            "item": "graphite",
+            "amount": 1
+        },
+        {
+            "item": "metaglass",
+            "amount": 2
+        },
+        {
+            "item": "titanium",
+            "amount": 2
+        }
+    ],
+    "research": "pulse-conduit"
+}

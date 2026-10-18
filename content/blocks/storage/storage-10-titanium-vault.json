@@ -1,0 +1,17 @@
+{
+    "type": "StorageBlock",
+    "name": "Titanium Vault",
+    "description": "Stores a huge amount of items of each type. Contents can be retrieved with an unloader.",
+    "category": "effect",
+    "health": 900,
+    "itemCapacity": 2200,
+    "size": 3,
+    "hasItems": true,
+    "requirements": [
+        {
+            "item": "titanium",
+            "amount": 300
+        }
+    ],
+    "research": "vault"
+}
